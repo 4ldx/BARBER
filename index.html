@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Barbería elegante y tradicional. Corte de cabello, barba y estilo masculino.">
+    <title>[NOMBRE DE LA BARBERÍA] | Barber Shop & Grooming</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Estilos locales -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <span class="logo-icon">✂</span>
+                <div class="logo-text">
+                    <span class="brand-name">[NOMBRE DE LA BARBERÍA]</span>
+                    <span class="brand-sub">BARBER SHOP</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#cotizador" class="btn btn-primary nav-btn">AGENDAR CITA</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Portada -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">EXPERIENCIA & TRADICIÓN</span>
+            <h1 class="hero-title">Tu estilo. Nuestra precisión.</h1>
+            <p class="hero-description">Cortes clásicos, arreglos de barba y estilismo masculino de alta calidad en un ambiente diseñado para tu confort.</p>
+            <div class="hero-actions">
+                <a href="#cotizador" class="btn btn-primary">AGENDAR CITA</a>
+                <a href="#servicios" class="btn btn-outline">VER SERVICIOS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios y Cotizador interactivo -->
+    <section id="servicios" class="section services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">CATÁLOGO & RESERVAS</span>
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <!-- Lista de selección de servicios -->
+                <div class="services-list-container">
+                    <p class="instruction-text">Selecciona uno o más servicios para cotizar y agendar tu cita:</p>
+                    
+                    <div class="services-options" id="servicesOptions">
+                        <label class="service-card" data-name="Corte clásico" data-price="150">
+                            <input type="checkbox" class="service-checkbox">
+                            <div class="service-info">
+                                <h3>Corte clásico</h3>
+                                <p>Corte tradicional a tijera o máquina, incluye lavado y peinado.</p>
+                            </div>
+                            <div class="service-price">$150 MXN</div>
+                        </label>
+
+                        <label class="service-card" data-name="Fade / Desvanecido" data-price="180">
+                            <input type="checkbox" class="service-checkbox">
+                            <div class="service-info">
+                                <h3>Fade / Desvanecido</h3>
+                                <p>Técnica de desvanecido de alta precisión con acabado impecable.</p>
+                            </div>
+                            <div class="service-price">$180 MXN</div>
+                        </label>
+
+                        <label class="service-card" data-name="Corte y barba" data-price="250">
+                            <input type="checkbox" class="service-checkbox">
+                            <div class="service-info">
+                                <h3>Corte y barba</h3>
+                                <p>Servicio completo de corte de cabello y diseño/perfilado de barba.</p>
+                            </div>
+                            <div class="service-price">$250 MXN</div>
+                        </label>
+
+                        <label class="service-card" data-name="Arreglo de barba" data-price="100">
+                            <input type="checkbox" class="service-checkbox">
+                            <div class="service-info">
+                                <h3>Arreglo de barba</h3>
+                                <p>Perfilado, recorte, toalla caliente y aplicación de aceites hidratantes.</p>
+                            </div>
+                            <div class="service-price">$100 MXN</div>
+                        </label>
+
+                        <label class="service-card" data-name="Corte infantil" data-price="120">
+                            <input type="checkbox" class="service-checkbox">
+                            <div class="service-info">
+                                <h3>Corte infantil</h3>
+                                <p>Atención paciente y acabados modernos para los más jóvenes.</p>
+                            </div>
+                            <div class="service-price">$120 MXN</div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Resumen interactivo y Agendador -->
+                <div class="booking-box" id="cotizador">
+                    <h3 class="booking-title">Resumen de tu Cita</h3>
+                    
+                    <div class="selected-summary">
+                        <ul id="selectedList" class="selected-list">
+                            <li class="empty-msg">No has seleccionado ningún servicio.</li>
+                        </ul>
+                        <div class="total-row">
+                            <span>Total estimado:</span>
+                            <span id="totalPrice" class="total-price">$0 MXN</span>
+                        </div>
+                    </div>
+
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-group">
+                            <label for="clientName">Nombre completo</label>
+                            <input type="text" id="clientName" placeholder="Ej. Carlos Mendoza" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="barberSelect">Barbero de preferencia</label>
+                            <select id="barberSelect">
+                                <option value="Cualquier barbero disponible">Cualquier barbero disponible</option>
+                                <option value="Barbero Principal">Barbero Principal</option>
+                                <option value="Especialista en Barba">Especialista en Barba</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bookingDate">Fecha</label>
+                                <input type="date" id="bookingDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookingTime">Hora</label>
+                                <input type="time" id="bookingTime" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="whatsappBtn">
+                            <span>CONFIRMAR POR WHATSAPP</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación y Horarios -->
+    <section id="ubicacion" class="section location-section">
+        <div class="container">
+            <div class="location-card">
+                <div class="location-info">
+                    <span class="section-tag">VISÍTANOS</span>
+                    <h2 class="location-title">Ubicación & Horarios</h2>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <strong>Dirección:</strong>
+                            <p>[DIRECCIÓN DE LA BARBERÍA], [CIUDAD]</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">🕒</span>
+                        <div>
+                            <strong>Horario de Atención:</strong>
+                            <p>Lunes a Sábado: [09:00 AM - 08:00 PM]</p>
+                            <p>Domingo: [10:00 AM - 03:00 PM]</p>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="mapLink">
+                        COMO LLEGAR (GOOGLE MAPS)
+                    </a>
+                </div>
+
+                <div class="location-visual">
+                    <div class="map-placeholder">
+                        <span>📷 Fotografía del Establecimiento / Mapa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer id="contacto" class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="brand-name">[NOMBRE DE LA BARBERÍA]</span>
+                <p>Estilo, tradición y precisión para el hombre moderno.</p>
+            </div>
+            
+            <div class="footer-copy">
+                <p>&copy; <span id="currentYear"></span> [NOMBRE DE LA BARBERÍA]. Todos los derechos reservados.</p>
+                <p class="credits">Sitio desarrollado por <a href="#" target="_blank">Black Gold Digital</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante para cotizar o agendar rápido -->
+    <a href="#cotizador" class="floating-btn" id="floatingBtn" aria-label="Agendar cita rápido">
+        ✂ AGENDAR CITA
+    </a>
+
+    <!-- Script principal -->
+    <script src="script.js"></script>
+</body>
+</html>
