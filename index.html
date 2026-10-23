@@ -1,233 +1,420 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Barbería elegante y tradicional. Corte de cabello, barba y estilo masculino.">
-    <title>[NOMBRE DE LA BARBERÍA] | Barber Shop & Grooming</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Estilos locales -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BARBER & CO. | Executive Grooming Club</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            club: {
+              black: '#0A0A0A',
+              surface: '#121212',
+              card: '#1A1A1A',
+              border: '#2A2A2A',
+              bronze: '#B8860B',
+              amber: '#D97706',
+              leather: '#8C5A32',
+              cream: '#F4EFEA',
+              muted: '#888888',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Cinzel', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bg-barber-grid {
+      background-size: 30px 30px;
+      background-image: 
+        linear-gradient(to right, rgba(184, 134, 11, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(184, 134, 11, 0.04) 1px, transparent 1px);
+    }
+    .bronze-glow {
+      box-shadow: 0 0 25px -5px rgba(184, 134, 11, 0.3);
+    }
+    .metallic-card {
+      border: 1px solid transparent;
+      background: linear-gradient(#1A1A1A, #1A1A1A) padding-box,
+                  linear-gradient(135deg, rgba(184,134,11,0.5), rgba(42,42,42,0.8), rgba(140,90,50,0.3)) border-box;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-club-black text-club-cream font-sans antialiased overflow-x-hidden bg-barber-grid selection:bg-club-bronze selection:text-club-black">
 
-    <!-- Navegación -->
-    <header class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="brand-logo">
-                <span class="logo-icon">✂</span>
-                <div class="logo-text">
-                    <span class="brand-name">[NOMBRE DE LA BARBERÍA]</span>
-                    <span class="brand-sub">BARBER SHOP</span>
-                </div>
-            </a>
+  <!-- Barbershop Top Bar -->
+  <div class="bg-[#050505] text-club-muted text-[11px] py-2 px-6 flex justify-between items-center border-b border-club-border/60">
+    <div class="flex items-center gap-2">
+      <i class="ph-bold ph-[#B8860B] ph-scissors text-club-bronze"></i>
+      <span class="tracking-wide">Cortes Clásicos, Barboterapia Ritual & Bebida de Cortesía Incluida</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6 text-club-muted font-medium">
+      <span><i class="ph-bold ph-clock mr-1"></i> Lun - Sáb: 10:00 AM - 8:00 PM</span>
+      <a href="https://api.whatsapp.com/send?phone=528611265737&text=Hola,%20quisiera%20consultar%20disponibilidad%20de%20citas." target="_blank" class="hover:text-club-bronze transition-colors flex items-center gap-1">
+        Atención VIP WhatsApp ↗
+      </a>
+    </div>
+  </div>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="nav-links" id="navLinks">
-                <a href="#inicio">Inicio</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#ubicacion">Ubicación</a>
-                <a href="#contacto">Contacto</a>
-                <a href="#cotizador" class="btn btn-primary nav-btn">AGENDAR CITA</a>
-            </nav>
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-40 bg-club-black/90 backdrop-blur-xl border-b border-club-border/80 transition-all">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded bg-gradient-to-br from-club-bronze to-club-leather flex items-center justify-center text-club-black text-2xl font-serif font-black shadow-lg group-hover:scale-105 transition-transform">
+          B
         </div>
-    </header>
-
-    <!-- Hero / Portada -->
-    <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-subtitle">EXPERIENCIA & TRADICIÓN</span>
-            <h1 class="hero-title">Tu estilo. Nuestra precisión.</h1>
-            <p class="hero-description">Cortes clásicos, arreglos de barba y estilismo masculino de alta calidad en un ambiente diseñado para tu confort.</p>
-            <div class="hero-actions">
-                <a href="#cotizador" class="btn btn-primary">AGENDAR CITA</a>
-                <a href="#servicios" class="btn btn-outline">VER SERVICIOS</a>
-            </div>
+        <div>
+          <span class="font-serif font-black text-2xl tracking-[0.15em] text-white block leading-none">BARBER & CO.</span>
+          <span class="text-[8.5px] uppercase tracking-[0.3em] text-club-bronze font-extrabold block mt-0.5">Executive Grooming Club</span>
         </div>
-    </section>
+      </a>
 
-    <!-- Servicios y Cotizador interactivo -->
-    <section id="servicios" class="section services-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">CATÁLOGO & RESERVAS</span>
-                <h2 class="section-title">Nuestros Servicios</h2>
-                <div class="title-divider"></div>
-            </div>
+      <nav class="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-club-muted">
+        <a href="#services" class="hover:text-club-bronze transition-colors">Servicios & Combos</a>
+        <a href="#lookbook" class="hover:text-club-bronze transition-colors">Lookbook Estilos</a>
+        <a href="#booking" class="hover:text-club-bronze transition-colors flex items-center gap-1.5">
+          <i class="ph-bold ph-calendar-check text-club-bronze"></i> Motor de Reservas
+        </a>
+      </nav>
 
-            <div class="services-grid">
-                <!-- Lista de selección de servicios -->
-                <div class="services-list-container">
-                    <p class="instruction-text">Selecciona uno o más servicios para cotizar y agendar tu cita:</p>
-                    
-                    <div class="services-options" id="servicesOptions">
-                        <label class="service-card" data-name="Corte clásico" data-price="150">
-                            <input type="checkbox" class="service-checkbox">
-                            <div class="service-info">
-                                <h3>Corte clásico</h3>
-                                <p>Corte tradicional a tijera o máquina, incluye lavado y peinado.</p>
-                            </div>
-                            <div class="service-price">$150 MXN</div>
-                        </label>
+      <a href="#booking" class="bg-gradient-to-r from-club-bronze to-club-leather text-white px-5 py-2.5 rounded text-xs font-black tracking-wider uppercase transition-all shadow-md hover:shadow-club-bronze/20 flex items-center gap-2 bronze-glow">
+        <i class="ph-bold ph-scissors"></i> Agendar Cita
+      </a>
+    </div>
+  </header>
 
-                        <label class="service-card" data-name="Fade / Desvanecido" data-price="180">
-                            <input type="checkbox" class="service-checkbox">
-                            <div class="service-info">
-                                <h3>Fade / Desvanecido</h3>
-                                <p>Técnica de desvanecido de alta precisión con acabado impecable.</p>
-                            </div>
-                            <div class="service-price">$180 MXN</div>
-                        </label>
+  <!-- Hero Section -->
+  <section class="relative min-h-[85vh] flex items-center py-20 px-6 overflow-hidden">
+    <!-- Ambient Glow -->
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-club-bronze/10 blur-[120px] pointer-events-none rounded-full"></div>
 
-                        <label class="service-card" data-name="Corte y barba" data-price="250">
-                            <input type="checkbox" class="service-checkbox">
-                            <div class="service-info">
-                                <h3>Corte y barba</h3>
-                                <p>Servicio completo de corte de cabello y diseño/perfilado de barba.</p>
-                            </div>
-                            <div class="service-price">$250 MXN</div>
-                        </label>
-
-                        <label class="service-card" data-name="Arreglo de barba" data-price="100">
-                            <input type="checkbox" class="service-checkbox">
-                            <div class="service-info">
-                                <h3>Arreglo de barba</h3>
-                                <p>Perfilado, recorte, toalla caliente y aplicación de aceites hidratantes.</p>
-                            </div>
-                            <div class="service-price">$100 MXN</div>
-                        </label>
-
-                        <label class="service-card" data-name="Corte infantil" data-price="120">
-                            <input type="checkbox" class="service-checkbox">
-                            <div class="service-info">
-                                <h3>Corte infantil</h3>
-                                <p>Atención paciente y acabados modernos para los más jóvenes.</p>
-                            </div>
-                            <div class="service-price">$120 MXN</div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Resumen interactivo y Agendador -->
-                <div class="booking-box" id="cotizador">
-                    <h3 class="booking-title">Resumen de tu Cita</h3>
-                    
-                    <div class="selected-summary">
-                        <ul id="selectedList" class="selected-list">
-                            <li class="empty-msg">No has seleccionado ningún servicio.</li>
-                        </ul>
-                        <div class="total-row">
-                            <span>Total estimado:</span>
-                            <span id="totalPrice" class="total-price">$0 MXN</span>
-                        </div>
-                    </div>
-
-                    <form id="bookingForm" class="booking-form">
-                        <div class="form-group">
-                            <label for="clientName">Nombre completo</label>
-                            <input type="text" id="clientName" placeholder="Ej. Carlos Mendoza" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="barberSelect">Barbero de preferencia</label>
-                            <select id="barberSelect">
-                                <option value="Cualquier barbero disponible">Cualquier barbero disponible</option>
-                                <option value="Barbero Principal">Barbero Principal</option>
-                                <option value="Especialista en Barba">Especialista en Barba</option>
-                            </select>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="bookingDate">Fecha</label>
-                                <input type="date" id="bookingDate" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="bookingTime">Hora</label>
-                                <input type="time" id="bookingTime" required>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-block" id="whatsappBtn">
-                            <span>CONFIRMAR POR WHATSAPP</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div class="lg:col-span-7 space-y-7">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-club-surface border border-club-bronze/30 text-club-bronze text-xs font-extrabold uppercase tracking-widest">
+          <i class="ph-bold ph-crown text-sm"></i> Estilo Masculino de Alta Gama
         </div>
-    </section>
 
-    <!-- Ubicación y Horarios -->
-    <section id="ubicacion" class="section location-section">
-        <div class="container">
-            <div class="location-card">
-                <div class="location-info">
-                    <span class="section-tag">VISÍTANOS</span>
-                    <h2 class="location-title">Ubicación & Horarios</h2>
-                    
-                    <div class="info-item">
-                        <span class="info-icon">📍</span>
-                        <div>
-                            <strong>Dirección:</strong>
-                            <p>[DIRECCIÓN DE LA BARBERÍA], [CIUDAD]</p>
-                        </div>
-                    </div>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-white tracking-wide">
+          La experiencia de <span class="bg-gradient-to-r from-club-bronze via-amber-200 to-club-leather bg-clip-text text-transparent italic">grooming ejecutivo</span> que mereces
+        </h1>
 
-                    <div class="info-item">
-                        <span class="info-icon">🕒</span>
-                        <div>
-                            <strong>Horario de Atención:</strong>
-                            <p>Lunes a Sábado: [09:00 AM - 08:00 PM]</p>
-                            <p>Domingo: [10:00 AM - 03:00 PM]</p>
-                        </div>
-                    </div>
+        <p class="text-club-muted text-base sm:text-lg max-w-2xl leading-relaxed font-light">
+          Cortes de precisión, toalla caliente tradicional y tratamiento de barba en un ambiente de club privado con barra de carajillos y whisky de cortesía.
+        </p>
 
-                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="mapLink">
-                        COMO LLEGAR (GOOGLE MAPS)
-                    </a>
-                </div>
-
-                <div class="location-visual">
-                    <div class="map-placeholder">
-                        <span>📷 Fotografía del Establecimiento / Mapa</span>
-                    </div>
-                </div>
-            </div>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#booking" class="bg-gradient-to-r from-club-bronze to-club-leather text-white px-8 py-4 rounded text-xs font-black tracking-widest uppercase transition-all flex items-center gap-2.5 bronze-glow">
+            <i class="ph-bold ph-calendar-plus text-lg"></i> Reservar Tu Barbero Ahora
+          </a>
+          <a href="#services" class="bg-club-surface hover:bg-club-card text-white border border-club-border px-8 py-4 rounded text-xs font-bold tracking-wider uppercase transition-all hover:border-club-bronze/50">
+            Ver Carta de Servicios ↗
+          </a>
         </div>
-    </section>
+      </div>
 
-    <!-- Pie de página -->
-    <footer id="contacto" class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <span class="brand-name">[NOMBRE DE LA BARBERÍA]</span>
-                <p>Estilo, tradición y precisión para el hombre moderno.</p>
+      <div class="lg:col-span-5 relative">
+        <div class="relative rounded-lg overflow-hidden metallic-card shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=85" alt="Barbería de lujo" class="w-full h-[480px] object-cover filter contrast-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-club-black via-club-black/20 to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 p-6 rounded bg-club-surface/90 backdrop-blur-md border border-club-border shadow-2xl">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-club-bronze font-extrabold block">Atención Personalizada</span>
+                <h4 class="font-serif font-bold text-lg text-white">Barberos Senior Certificados</h4>
+              </div>
+              <span class="text-[10px] font-black bg-club-bronze/20 text-club-bronze border border-club-bronze/40 px-3 py-1 rounded uppercase">Master Class</span>
             </div>
-            
-            <div class="footer-copy">
-                <p>&copy; <span id="currentYear"></span> [NOMBRE DE LA BARBERÍA]. Todos los derechos reservados.</p>
-                <p class="credits">Sitio desarrollado por <a href="#" target="_blank">Black Gold Digital</a></p>
-            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- Botón flotante para cotizar o agendar rápido -->
-    <a href="#cotizador" class="floating-btn" id="floatingBtn" aria-label="Agendar cita rápido">
-        ✂ AGENDAR CITA
-    </a>
+  <!-- Interactive Booking Engine & Custom Pack Builder -->
+  <section id="booking" class="py-20 px-6 bg-club-surface/80 border-y border-club-border/60">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-club-bronze font-bold text-xs uppercase tracking-[0.2em]">Citas Instantáneas</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 text-white">Configurador de Cita & Servicios</h2>
+        <p class="text-club-muted text-sm sm:text-base mt-2 font-light">Arma tu paquete de servicios, selecciona a tu especialista y confirma la hora de tu cita en tiempo real.</p>
+      </div>
 
-    <!-- Script principal -->
-    <script src="script.js"></script>
+      <div class="bg-club-card p-6 sm:p-10 rounded metallic-card max-w-5xl mx-auto shadow-2xl">
+        <div class="grid lg:grid-cols-12 gap-8">
+          
+          <!-- Controls Left -->
+          <div class="lg:col-span-7 space-y-6">
+            <!-- Step 1: Services Selection -->
+            <div>
+              <label class="block text-xs font-extrabold uppercase tracking-widest text-club-bronze mb-3">1. Selecciona tus Servicios:</label>
+              <div class="space-y-2.5" id="services-checklist">
+                <!-- JS populated checklist -->
+              </div>
+            </div>
+
+            <!-- Step 2: Choose Barber -->
+            <div>
+              <label class="block text-xs font-extrabold uppercase tracking-widest text-club-bronze mb-3">2. Selecciona tu Barbero Preferido:</label>
+              <div class="grid grid-cols-3 gap-3" id="barber-selector">
+                <button onclick="selectBarber('alex', this)" class="barber-btn active p-3 border border-club-bronze bg-club-bronze/10 rounded text-center transition-all">
+                  <span class="block font-serif font-bold text-white text-xs">Alex "Fade"</span>
+                  <span class="text-[9.5px] text-club-muted block mt-0.5">Especialista Fade</span>
+                </button>
+                <button onclick="selectBarber('marcus', this)" class="barber-btn p-3 border border-club-border hover:border-club-bronze/50 rounded text-center transition-all">
+                  <span class="block font-serif font-bold text-white text-xs">Marcus Vance</span>
+                  <span class="text-[9.5px] text-club-muted block mt-0.5">Barboterapia Master</span>
+                </button>
+                <button onclick="selectBarber('cualquiera', this)" class="barber-btn p-3 border border-club-border hover:border-club-bronze/50 rounded text-center transition-all">
+                  <span class="block font-serif font-bold text-white text-xs">Primer Disponible</span>
+                  <span class="text-[9.5px] text-club-muted block mt-0.5">Atención Rápida</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Date & Time -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-extrabold uppercase tracking-widest text-club-bronze mb-2">3. Fecha de Cita:</label>
+                <input type="date" id="booking-date" class="w-full bg-club-surface border border-club-border rounded px-4 py-3 text-white text-xs focus:outline-none focus:border-club-bronze font-semibold">
+              </div>
+              <div>
+                <label class="block text-xs font-extrabold uppercase tracking-widest text-club-bronze mb-2">Hora Estimada:</label>
+                <select id="booking-time" class="w-full bg-club-surface border border-club-border rounded px-4 py-3 text-white text-xs focus:outline-none focus:border-club-bronze font-semibold">
+                  <option>10:00 AM</option>
+                  <option>11:30 AM</option>
+                  <option>01:00 PM</option>
+                  <option>03:30 PM</option>
+                  <option>05:00 PM</option>
+                  <option>06:30 PM</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary Right -->
+          <div class="lg:col-span-5 bg-club-black p-6 sm:p-8 rounded border border-club-border flex flex-col justify-between">
+            <div class="space-y-4">
+              <span class="text-[10px] uppercase tracking-[0.2em] text-club-bronze font-extrabold block">Resumen de Tu Sesión</span>
+              
+              <div class="space-y-2.5 border-t border-club-border/60 pt-4 text-xs font-light" id="summary-items">
+                <!-- JS populated items -->
+              </div>
+
+              <div class="border-t border-club-border/60 pt-3 space-y-1.5 text-xs">
+                <div class="flex justify-between text-club-muted">
+                  <span>Barbero Asignado:</span>
+                  <span class="text-white font-bold" id="selected-barber-name">Alex "Fade"</span>
+                </div>
+                <div class="flex justify-between text-club-muted">
+                  <span>Tiempo Estimado:</span>
+                  <span class="text-club-bronze font-bold" id="total-time">45 Minutos</span>
+                </div>
+                <div class="flex justify-between text-club-muted">
+                  <span>Bebida VIP:</span>
+                  <span class="text-emerald-400 font-bold">Cortesía Incluida</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-club-border/80 mt-6">
+              <span class="text-[10px] text-club-muted uppercase tracking-wider block">Total Estimado</span>
+              <div class="font-serif text-3xl font-black text-club-bronze mt-0.5" id="total-price">$0.00 MXN</div>
+
+              <button onclick="sendBookingOrder()" id="btn-booking" disabled class="opacity-50 cursor-not-allowed w-full bg-gradient-to-r from-club-bronze to-club-leather text-white py-3.5 rounded font-extrabold text-xs uppercase tracking-widest transition-all mt-4 flex items-center justify-center gap-2">
+                <i class="ph-bold ph-whatsapp-logo text-base"></i> Confirmar Cita por WhatsApp
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lookbook Section -->
+  <section id="lookbook" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-club-border/60 pb-6">
+      <div>
+        <span class="text-club-bronze font-bold text-xs uppercase tracking-[0.2em]">Catálogo de Estilos</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-1 text-white">Lookbook de Cortes & Barba</h2>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-club-card rounded overflow-hidden border border-club-border hover:border-club-bronze/50 transition-all group">
+        <div class="h-64 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Executive Skin Fade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6">
+          <h3 class="font-serif font-bold text-lg text-white mb-1">Executive Skin Fade</h3>
+          <p class="text-club-muted text-xs font-light leading-relaxed">Desvanecido de alta precisión con alineado de navaja libre y acabado mate natural.</p>
+        </div>
+      </div>
+
+      <div class="bg-club-card rounded overflow-hidden border border-club-border hover:border-club-bronze/50 transition-all group">
+        <div class="h-64 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=600&q=80" alt="Barboterapia Tradicional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6">
+          <h3 class="font-serif font-bold text-lg text-white mb-1">Ritual Barboterapia</h3>
+          <p class="text-club-muted text-xs font-light leading-relaxed">Perfilado de barba con toalla caliente, aceites esenciales de eucalipto y bálsamo hidratante.</p>
+        </div>
+      </div>
+
+      <div class="bg-club-card rounded overflow-hidden border border-club-border hover:border-club-bronze/50 transition-all group">
+        <div class="h-64 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" alt="Corte Clásico Pompadour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6">
+          <h3 class="font-serif font-bold text-lg text-white mb-1">Corte Clásico Lord</h3>
+          <p class="text-club-muted text-xs font-light leading-relaxed">Estilo atemporal a tijera para caballeros ejecutivos que buscan sobriedad y textura impecable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#050505] text-white border-t border-club-border/60 py-12 px-6 text-center space-y-4">
+    <h3 class="font-serif text-2xl font-black tracking-[0.2em]">BARBER & CO.</h3>
+    <p class="text-xs text-club-muted max-w-md mx-auto font-light">Grooming Club & Executive Spa. La experiencia definitiva para el caballero moderno.</p>
+    <div class="pt-4 border-t border-club-border/30 text-[11px] text-club-muted/50 font-medium">
+      Plataforma desarrollada bajo el estándar <strong class="text-club-bronze">WaaS Completed</strong> por <strong>Black Gold Digital</strong>.
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script>
+    const servicesList = [
+      { id: 's1', name: 'Corte Ejecutivo & Peinado', price: 320, time: 35 },
+      { id: 's2', name: 'Barboterapia & Toalla Caliente', price: 250, time: 30 },
+      { id: 's3', name: 'Combo Royale (Corte + Barba + Masaje)', price: 500, time: 60 },
+      { id: 's4', name: 'Exfoliación & Mascarilla Negra', price: 180, time: 20 },
+      { id: 's5', name: 'Perfilado de Cejas con Navaja', price: 90, time: 10 }
+    ];
+
+    let selectedServices = {};
+    let currentBarber = 'Alex "Fade"';
+
+    function initServicesChecklist() {
+      const container = document.getElementById('services-checklist');
+      container.innerHTML = servicesList.map(s => `
+        <label class="flex items-center justify-between bg-club-surface p-3.5 rounded border border-club-border text-xs cursor-pointer hover:border-club-bronze/50 transition-colors">
+          <div class="flex items-center gap-3">
+            <input type="checkbox" onchange="toggleService('${s.id}')" class="accent-club-bronze w-4 h-4">
+            <span class="font-bold text-white">${s.name}</span>
+          </div>
+          <span class="text-club-bronze font-extrabold">$${s.price} MXN</span>
+        </label>
+      `).join('');
+
+      // Pre-select first service by default
+      const firstInput = container.querySelector('input[type="checkbox"]');
+      if (firstInput) {
+        firstInput.checked = true;
+        toggleService('s1');
+      }
+
+      // Default date to tomorrow
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      document.getElementById('booking-date').value = tomorrow.toISOString().split('T')[0];
+    }
+
+    function toggleService(id) {
+      if (selectedServices[id]) {
+        delete selectedServices[id];
+      } else {
+        selectedServices[id] = servicesList.find(s => s.id === id);
+      }
+      updateSummary();
+    }
+
+    function selectBarber(key, btn) {
+      document.querySelectorAll('.barber-btn').forEach(b => {
+        b.classList.remove('border-club-bronze', 'bg-club-bronze/10');
+        b.classList.add('border-club-border');
+      });
+      btn.classList.add('border-club-bronze', 'bg-club-bronze/10');
+      btn.classList.remove('border-club-border');
+
+      if(key === 'alex') currentBarber = 'Alex "Fade"';
+      if(key === 'marcus') currentBarber = 'Marcus Vance';
+      if(key === 'cualquiera') currentBarber = 'Primer Barbero Disponible';
+
+      document.getElementById('selected-barber-name').innerText = currentBarber;
+    }
+
+    function updateSummary() {
+      const itemsContainer = document.getElementById('summary-items');
+      const selectedKeys = Object.keys(selectedServices);
+
+      if (selectedKeys.length === 0) {
+        itemsContainer.innerHTML = `<span class="text-club-muted italic">No has seleccionado ningún servicio.</span>`;
+        document.getElementById('total-price').innerText = '$0.00 MXN';
+        document.getElementById('total-time').innerText = '0 Minutos';
+        const btn = document.getElementById('btn-booking');
+        btn.disabled = true;
+        btn.classList.add('opacity-50', 'cursor-not-allowed');
+        return;
+      }
+
+      let totalPrice = 0;
+      let totalTime = 0;
+
+      itemsContainer.innerHTML = selectedKeys.map(k => {
+        const item = selectedServices[k];
+        totalPrice += item.price;
+        totalTime += item.time;
+        return `
+          <div class="flex justify-between text-club-text">
+            <span>${item.name}</span>
+            <span class="font-bold text-white">$${item.price} MXN</span>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('total-price').innerText = `$${totalPrice.toFixed(2)} MXN`;
+      document.getElementById('total-time').innerText = `${totalTime} Minutos`;
+
+      const btn = document.getElementById('btn-booking');
+      btn.disabled = false;
+      btn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+
+    function sendBookingOrder() {
+      const date = document.getElementById('booking-date').value;
+      const time = document.getElementById('booking-time').value;
+      const total = document.getElementById('total-price').innerText;
+
+      let serviceNames = Object.values(selectedServices).map(s => s.name).join(', ');
+
+      const msg = `Hola Barber %26 Co., me gustaría agendar una cita.%0A- Servicios: ${serviceNames}%0A- Barbero: ${currentBarber}%0A- Fecha/Hora: ${date} a las ${time}%0A- Total Estimado: ${total}`;
+      window.open(`https://api.whatsapp.com/send?phone=528611265737&text=${msg}`, '_blank');
+    }
+
+    window.onload = function() {
+      initServicesChecklist();
+    };
+  </script>
 </body>
 </html>
